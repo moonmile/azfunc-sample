@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>HttpmSampleの呼び出し</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        function getlist() {
+            $.get('https://sample-azfunc-adv-httpsample.azurewebsites.net/api/ReadData?code=8ZZQ5xl8LiYFqXkzzsTmnoz/M/3afmGzMa841E9zMV3JHJrazh7GtA==',
+                function (data) {
+                    $('#message').text(data);
+            });
+        }
+        function postdata(pno, status) {
+            var jsondata = { pno: pno, status: status };
+            var json = JSON.stringify(jsondata);
+            $.post('https://sample-azfunc-adv-httpsample.azurewebsites.net/api/WriteData?code=ZV8r8XuE8KsX39QjKN31thV0ax4XIaMlWIhHMvHltAaHtiEPK5xAgg==',
+                json,
+                function (data) {
+                    alert(data);
+                }
+            );
+        }
+    </script>
+</head>
+<body>
+    <h2>一覧の表示</h2>
+    <input id="btn" name="btn" type="button" onclick="getlist();" value="一覧取得" />
+    <div id="message"></div>
+
+    <h2>出勤状態を更新</h2>
+        <input id="btn" name="btn" type="button" onclick="postdata('100','出勤');" value="出勤" />
+        <input id="btn" name="btn" type="button" onclick="postdata('100','外出');" value="外出" />
+        <input id="btn" name="btn" type="button" onclick="postdata('100','帰宅');" value="帰宅" />
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "myIoTHubMessage",
+      "direction": "in",
+      "eventHubName": "samples-workitems",
+      "connection": "sample-azfunc-iothub_events_IOTHUB",
+      "consumerGroup": "$Default"
+    }
+  ],
+  "disabled": false
+}

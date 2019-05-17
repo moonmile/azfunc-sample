@@ -1,0 +1,15 @@
+{
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "name": "input",
+      "direction": "in",
+      "connectionStringSetting": "sample-azufunc-basic-cosmosdb_DOCUMENTDB",
+      "databaseName": "SampleDB",
+      "collectionName": "SampleCollection",
+      "leaseCollectionName": "leases",
+      "createLeaseCollectionIfNotExists": true
+    }
+  ],
+  "disabled": false
+}
